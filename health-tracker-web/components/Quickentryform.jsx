@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 export default function Quickentryform() {
     const router = useRouter()
+    const [submitting,setSubmitting]= useState(false)
+    
 
 
 }
