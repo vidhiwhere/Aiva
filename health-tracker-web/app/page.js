@@ -1,27 +1,30 @@
 import { createClient } from '@/lib/supabase/server'
-import QuickEntryForm from '@/components/QuickEntryForm'
-import DailyLogCard from '@/components/DailyLogCard'
+import DashboardView from '@/components/DashboardView'
 import { TEMP_USER_ID } from '@/lib/constants'
 
-export default async function Dashboard() {
-  const supabase = await createClient()
+export const metadata = {
+  title: 'AIVA - AI + Vitality Health & Recovery Engine',
+  description: 'Intelligent daily health, sleep, movement, and vitality tracker with Groq AI coaching.',
+}
 
-  const { data: logs } = await supabase
-    .from('daily_logs')
-    .select('*')
-    .eq('user_id', TEMP_USER_ID)
-    .order('date', { ascending: false })
-    .limit(14)
+export default async function Page() {
+  let logs = []
 
-  return (
-    <main style={{ padding: 24, maxWidth: 600, margin: '0 auto' }}>
-      <h1>Today</h1>
-      <QuickEntryForm />
-      <h2 style={{ marginTop: 32 }}>Recent entries</h2>
-      <div style={{ display: 'grid', gap: 8 }}>
-        {logs?.map((log) => <DailyLogCard key={log.id} log={log} />)}
-        {!logs?.length && <p>No entries yet.</p>}
-      </div>
-    </main>
-  )
+  try {
+    const supabase = await createClient()
+    const { data, error } = await supabase
+      .from('daily_logs')
+      .select('*')
+      .eq('user_id', TEMP_USER_ID)
+      .order('date', { ascending: false })
+      .limit(30)
+
+    if (!error && data) {
+      logs = data
+    }
+  } catch (err) {
+    console.warn('Could not fetch initial logs from Supabase, using local defaults:', err.message)
+  }
+
+  return <DashboardView initialLogs={logs} />
 }
