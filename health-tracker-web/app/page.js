@@ -1,10 +1,10 @@
 import { createClient } from '@/lib/supabase/server'
-import DashboardView from '@/components/DashboardView'
+import HomePage from '@/components/HomePage'
 import { TEMP_USER_ID } from '@/lib/constants'
 
 export const metadata = {
-  title: 'AIVA - AI + Vitality Health & Recovery Engine',
-  description: 'Intelligent daily health, sleep, movement, and vitality tracker with Groq AI coaching.',
+  title: 'AIVA — Daily Health & Vitality Log',
+  description: 'AI-assisted vitality tracking with restorative sleep, daily movement, and intelligent recovery coaching.',
 }
 
 export default async function Page() {
@@ -17,14 +17,14 @@ export default async function Page() {
       .select('*')
       .eq('user_id', TEMP_USER_ID)
       .order('date', { ascending: false })
-      .limit(30)
+      .limit(14)
 
     if (!error && data) {
       logs = data
     }
   } catch (err) {
-    console.warn('Could not fetch initial logs from Supabase, using local defaults:', err.message)
+    console.warn('Could not fetch logs from Supabase, using local defaults:', err.message)
   }
 
-  return <DashboardView initialLogs={logs} />
+  return <HomePage initialLogs={logs} />
 }
