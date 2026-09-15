@@ -83,8 +83,9 @@ export default function AivaCoachModal({ isOpen, onClose, logs = [] }) {
                         <div>
                             <div className="flex items-center gap-2">
                                 <h3 className="text-base font-bold text-white">AIVA AI Vitality Coach</h3>
-                                <span className="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 text-[10px] font-semibold">
-                                    Llama 3.3
+                                <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-[10px] font-semibold">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    AI Active
                                 </span>
                             </div>
                             <p className="text-xs text-slate-400">Context-aware health & recovery guidance</p>
