@@ -249,19 +249,20 @@ export default function HomePage({ initialLogs = [] }) {
                     </div>
                 )}
 
-                {/* Quick Entry Form (Signature Pine Slate Journal Card) */}
+                {/* Quick Entry Form (Editorial Warm Beige Journal Card) */}
                 <form
                     onSubmit={handleSubmit}
                     style={{
                         background: colors.surface,
-                        borderLeft: `3px solid ${colors.accent}`,
-                        borderRadius: 8,
+                        border: `1px solid ${colors.border}`,
+                        borderLeft: `4px solid ${colors.accent}`,
+                        borderRadius: 12,
                         padding: 24,
                         display: 'grid',
                         gridTemplateColumns: '1fr 1fr',
                         gap: 16,
-                        boxShadow: '0 12px 32px rgba(13, 27, 36, 0.15)',
-                        color: colors.textLight,
+                        boxShadow: '0 8px 24px rgba(23, 40, 50, 0.05)',
+                        color: colors.text,
                     }}
                 >
                     {/* Header bar of form with AI auto-fill trigger */}
@@ -274,7 +275,7 @@ export default function HomePage({ initialLogs = [] }) {
                             marginBottom: 4,
                         }}
                     >
-                        <span style={{ fontSize: 13, fontWeight: 700, color: colors.accent, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                        <span style={{ fontSize: 13, fontWeight: 700, color: colors.text, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
                             Daily Log
                         </span>
                         <button
@@ -283,7 +284,7 @@ export default function HomePage({ initialLogs = [] }) {
                             style={{
                                 background: 'transparent',
                                 border: 'none',
-                                color: colors.accent,
+                                color: '#9B6D36',
                                 fontSize: 12,
                                 fontWeight: 600,
                                 cursor: 'pointer',
@@ -299,25 +300,25 @@ export default function HomePage({ initialLogs = [] }) {
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                        <label style={{ fontSize: 13, color: colors.textMutedLight }}>Date</label>
+                        <label style={{ fontSize: 13, fontWeight: 600, color: colors.textMuted }}>Date</label>
                         <input
                             type="date"
                             name="date"
                             value={form.date}
                             onChange={(e) => setForm({ ...form, date: e.target.value })}
                             style={{
-                                background: 'transparent',
-                                border: 'none',
-                                borderBottom: `1px solid ${colors.borderDark}`,
-                                color: colors.textLight,
-                                padding: '6px 0',
+                                background: '#FFFFFF',
+                                border: `1px solid ${colors.border}`,
+                                borderRadius: 6,
+                                color: colors.text,
+                                padding: '8px 12px',
                                 fontSize: 14,
                             }}
                         />
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                        <label style={{ fontSize: 13, color: colors.textMutedLight }}>Sleep hours</label>
+                        <label style={{ fontSize: 13, fontWeight: 600, color: colors.textMuted }}>Sleep hours</label>
                         <input
                             type="number"
                             step="0.1"
@@ -326,18 +327,18 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.sleep_hours}
                             onChange={(e) => setForm({ ...form, sleep_hours: e.target.value })}
                             style={{
-                                background: 'transparent',
-                                border: 'none',
-                                borderBottom: `1px solid ${colors.borderDark}`,
-                                color: colors.textLight,
-                                padding: '6px 0',
+                                background: '#FFFFFF',
+                                border: `1px solid ${colors.border}`,
+                                borderRadius: 6,
+                                color: colors.text,
+                                padding: '8px 12px',
                                 fontSize: 14,
                             }}
                         />
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                        <label style={{ fontSize: 13, color: colors.textMutedLight }}>Sleep quality (1–5)</label>
+                        <label style={{ fontSize: 13, fontWeight: 600, color: colors.textMuted }}>Sleep quality (1–5)</label>
                         <input
                             type="number"
                             min="1"
@@ -347,18 +348,18 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.sleep_quality}
                             onChange={(e) => setForm({ ...form, sleep_quality: e.target.value })}
                             style={{
-                                background: 'transparent',
-                                border: 'none',
-                                borderBottom: `1px solid ${colors.borderDark}`,
-                                color: colors.textLight,
-                                padding: '6px 0',
+                                background: '#FFFFFF',
+                                border: `1px solid ${colors.border}`,
+                                borderRadius: 6,
+                                color: colors.text,
+                                padding: '8px 12px',
                                 fontSize: 14,
                             }}
                         />
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                        <label style={{ fontSize: 13, color: colors.textMutedLight }}>Steps</label>
+                        <label style={{ fontSize: 13, fontWeight: 600, color: colors.textMuted }}>Steps</label>
                         <input
                             type="number"
                             name="steps"
@@ -366,18 +367,18 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.steps}
                             onChange={(e) => setForm({ ...form, steps: e.target.value })}
                             style={{
-                                background: 'transparent',
-                                border: 'none',
-                                borderBottom: `1px solid ${colors.borderDark}`,
-                                color: colors.textLight,
-                                padding: '6px 0',
+                                background: '#FFFFFF',
+                                border: `1px solid ${colors.border}`,
+                                borderRadius: 6,
+                                color: colors.text,
+                                padding: '8px 12px',
                                 fontSize: 14,
                             }}
                         />
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                        <label style={{ fontSize: 13, color: colors.textMutedLight }}>Active minutes</label>
+                        <label style={{ fontSize: 13, fontWeight: 600, color: colors.textMuted }}>Active minutes</label>
                         <input
                             type="number"
                             name="active_minutes"
@@ -385,18 +386,18 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.active_minutes}
                             onChange={(e) => setForm({ ...form, active_minutes: e.target.value })}
                             style={{
-                                background: 'transparent',
-                                border: 'none',
-                                borderBottom: `1px solid ${colors.borderDark}`,
-                                color: colors.textLight,
-                                padding: '6px 0',
+                                background: '#FFFFFF',
+                                border: `1px solid ${colors.border}`,
+                                borderRadius: 6,
+                                color: colors.text,
+                                padding: '8px 12px',
                                 fontSize: 14,
                             }}
                         />
                     </div>
 
                     <div style={{ gridColumn: '1 / -1', display: 'flex', flexDirection: 'column', gap: 6 }}>
-                        <label style={{ fontSize: 13, color: colors.textMutedLight }}>Notes</label>
+                        <label style={{ fontSize: 13, fontWeight: 600, color: colors.textMuted }}>Notes</label>
                         <input
                             type="text"
                             name="notes"
@@ -404,11 +405,11 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.notes}
                             onChange={(e) => setForm({ ...form, notes: e.target.value })}
                             style={{
-                                background: 'transparent',
-                                border: 'none',
-                                borderBottom: `1px solid ${colors.borderDark}`,
-                                color: colors.textLight,
-                                padding: '6px 0',
+                                background: '#FFFFFF',
+                                border: `1px solid ${colors.border}`,
+                                borderRadius: 6,
+                                color: colors.text,
+                                padding: '8px 12px',
                                 fontSize: 14,
                             }}
                         />
@@ -421,7 +422,7 @@ export default function HomePage({ initialLogs = [] }) {
                             gridColumn: '1 / -1',
                             marginTop: 8,
                             background: colors.accent,
-                            color: '#0D1B24',
+                            color: '#172832',
                             border: 'none',
                             borderRadius: 999,
                             padding: '10px 22px',

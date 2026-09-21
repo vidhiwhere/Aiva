@@ -236,7 +236,7 @@ export default function AivaCoachDrawer({ isOpen, onClose, logs = [] }) {
                 {/* Suggestions */}
                 <div
                     style={{
-                        padding: '8px 16px',
+                        padding: '10px 16px',
                         borderTop: `1px solid ${theme.border}`,
                         backgroundColor: theme.bgSecondary,
                         display: 'flex',
@@ -250,14 +250,16 @@ export default function AivaCoachDrawer({ isOpen, onClose, logs = [] }) {
                             onClick={() => handleSend(prompt)}
                             disabled={loading}
                             style={{
-                                background: theme.surface,
+                                background: '#FFFFFF',
                                 border: `1px solid ${theme.border}`,
-                                color: theme.textMuted,
-                                padding: '4px 10px',
+                                color: theme.textSecondary,
+                                padding: '5px 12px',
                                 borderRadius: 999,
-                                fontSize: 11,
+                                fontSize: 12,
+                                fontWeight: 500,
                                 cursor: 'pointer',
                                 whiteSpace: 'nowrap',
+                                transition: 'all 0.15s ease',
                             }}
                         >
                             {prompt}
@@ -287,7 +289,7 @@ export default function AivaCoachDrawer({ isOpen, onClose, logs = [] }) {
                         disabled={loading}
                         style={{
                             flex: 1,
-                            background: theme.bgSecondary,
+                            background: '#FFFFFF',
                             border: `1px solid ${theme.border}`,
                             color: theme.text,
                             padding: '10px 14px',
@@ -300,10 +302,11 @@ export default function AivaCoachDrawer({ isOpen, onClose, logs = [] }) {
                         disabled={loading || !input.trim()}
                         style={{
                             background: theme.accent,
-                            color: theme.bg,
+                            color: theme.text,
                             border: 'none',
                             borderRadius: 8,
-                            padding: '0 16px',
+                            padding: '0 18px',
+                            fontWeight: 600,
                             cursor: 'pointer',
                             display: 'flex',
                             alignItems: 'center',
