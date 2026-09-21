@@ -1,10 +1,17 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import './DriftWall.css';
 
+const LOCAL_USER_IMAGES = [
+  '/images/img-1.jpg',
+  '/images/img-2.jpg',
+  '/images/img-3.jpg',
+  '/images/img-4.jpg',
+  '/images/img-5.jpg',
+];
+
 const DEFAULT_ITEMS = Array.from({ length: 15 }, (_, i) => {
-  const ids = [1015, 1025, 1039, 1043, 1044, 1050, 1062, 1069, 1074, 1080, 1084, 106, 110, 133, 164];
   return {
-    image: `https://picsum.photos/id/${ids[i % ids.length]}/600/400`,
+    image: LOCAL_USER_IMAGES[i % LOCAL_USER_IMAGES.length],
     title: `Tile ${i + 1}`,
     href: undefined
   };
@@ -84,7 +91,7 @@ const DriftWall = ({
     });
   }, [columnItems, tileHeight, gap, containerHeight]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!containerRef.current) return;
     const ro = new ResizeObserver(([entry]) => {
       setContainerHeight(entry.contentRect.height || 600);
@@ -225,9 +232,21 @@ const DriftWall = ({
   );
 
   const renderTile = (item, id, colIndex) => {
+    const fallbackSrc = LOCAL_USER_IMAGES[Math.abs(colIndex) % LOCAL_USER_IMAGES.length];
     const inner = (
       <span className="drift-wall__inner">
-        <img src={item.image} alt={item.title ?? ''} loading="lazy" decoding="async" draggable={false} />
+        <img
+          src={item.image || fallbackSrc}
+          alt={item.title ?? ''}
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+          onError={(e) => {
+            if (e.currentTarget.src !== fallbackSrc && !e.currentTarget.src.endsWith(fallbackSrc)) {
+              e.currentTarget.src = fallbackSrc;
+            }
+          }}
+        />
         <span className="drift-wall__overlay" aria-hidden="true" />
       </span>
     );
