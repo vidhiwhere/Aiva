@@ -176,7 +176,7 @@ export default function HomePage({ initialLogs = [] }) {
                         style={{
                             background: colors.bgSecondary,
                             border: `1px solid ${colors.border}`,
-                            borderRadius: 8,
+                            borderRadius: 10,
                             padding: 14,
                             marginBottom: 16,
                             display: 'flex',
@@ -185,7 +185,7 @@ export default function HomePage({ initialLogs = [] }) {
                         }}
                     >
                         <div style={{ fontSize: 12, color: colors.textMuted, display: 'flex', alignItems: 'center', gap: 6 }}>
-                            <Wand2 size={13} style={{ color: colors.accent }} />
+                            <Wand2 size={13} style={{ color: '#9B6D36' }} />
                             <span>Describe your day (e.g. "Slept 8 hrs, 9500 steps, 40 min run, felt great"):</span>
                         </div>
                         <div style={{ display: 'flex', gap: 8 }}>
@@ -197,7 +197,7 @@ export default function HomePage({ initialLogs = [] }) {
                                 onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), handleAiParse())}
                                 style={{
                                     flex: 1,
-                                    background: '#FFFFFF',
+                                    background: colors.bg,
                                     border: `1px solid ${colors.border}`,
                                     color: colors.text,
                                     padding: '8px 12px',
@@ -211,7 +211,7 @@ export default function HomePage({ initialLogs = [] }) {
                                 disabled={aiParsing || !aiPrompt.trim()}
                                 style={{
                                     background: colors.accent,
-                                    color: '#0D1B24',
+                                    color: colors.text,
                                     border: 'none',
                                     borderRadius: 6,
                                     padding: '0 14px',
@@ -254,7 +254,9 @@ export default function HomePage({ initialLogs = [] }) {
                     onSubmit={handleSubmit}
                     style={{
                         background: colors.surface,
-                        border: `1px solid ${colors.border}`,
+                        borderTop: `1px solid ${colors.border}`,
+                        borderRight: `1px solid ${colors.border}`,
+                        borderBottom: `1px solid ${colors.border}`,
                         borderLeft: `4px solid ${colors.accent}`,
                         borderRadius: 12,
                         padding: 24,
@@ -307,7 +309,7 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.date}
                             onChange={(e) => setForm({ ...form, date: e.target.value })}
                             style={{
-                                background: '#FFFFFF',
+                                background: colors.bg,
                                 border: `1px solid ${colors.border}`,
                                 borderRadius: 6,
                                 color: colors.text,
@@ -327,7 +329,7 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.sleep_hours}
                             onChange={(e) => setForm({ ...form, sleep_hours: e.target.value })}
                             style={{
-                                background: '#FFFFFF',
+                                background: colors.bg,
                                 border: `1px solid ${colors.border}`,
                                 borderRadius: 6,
                                 color: colors.text,
@@ -348,7 +350,7 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.sleep_quality}
                             onChange={(e) => setForm({ ...form, sleep_quality: e.target.value })}
                             style={{
-                                background: '#FFFFFF',
+                                background: colors.bg,
                                 border: `1px solid ${colors.border}`,
                                 borderRadius: 6,
                                 color: colors.text,
@@ -367,7 +369,7 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.steps}
                             onChange={(e) => setForm({ ...form, steps: e.target.value })}
                             style={{
-                                background: '#FFFFFF',
+                                background: colors.bg,
                                 border: `1px solid ${colors.border}`,
                                 borderRadius: 6,
                                 color: colors.text,
@@ -386,7 +388,7 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.active_minutes}
                             onChange={(e) => setForm({ ...form, active_minutes: e.target.value })}
                             style={{
-                                background: '#FFFFFF',
+                                background: colors.bg,
                                 border: `1px solid ${colors.border}`,
                                 borderRadius: 6,
                                 color: colors.text,
@@ -405,7 +407,7 @@ export default function HomePage({ initialLogs = [] }) {
                             value={form.notes}
                             onChange={(e) => setForm({ ...form, notes: e.target.value })}
                             style={{
-                                background: '#FFFFFF',
+                                background: colors.bg,
                                 border: `1px solid ${colors.border}`,
                                 borderRadius: 6,
                                 color: colors.text,
@@ -422,7 +424,7 @@ export default function HomePage({ initialLogs = [] }) {
                             gridColumn: '1 / -1',
                             marginTop: 8,
                             background: colors.accent,
-                            color: '#172832',
+                            color: colors.text,
                             border: 'none',
                             borderRadius: 999,
                             padding: '10px 22px',

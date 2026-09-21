@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #F5EFE6;
-  --bg-secondary: #EDE4D8;
-  --surface: #EDE4D8;
+  --bg: #E8DEC8;
+  --bg-secondary: #DFD4BE;
+  --surface: #E2D6C0;
   --text: #172832;
-  --text-muted: #6E6254;
+  --text-muted: #685A48;
   --accent: #E8B978;
   --accent-soft: #D89A6B;
   --success: #5B7A58;
-  --border: #D0C2B0;
+  --border: #C8B9A0;
 }
 
 html, body {
-  background: #F5EFE6;
+  background: #E8DEC8;
   color: #172832;
   min-height: 100vh;
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

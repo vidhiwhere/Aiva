@@ -250,7 +250,7 @@ export default function AivaCoachDrawer({ isOpen, onClose, logs = [] }) {
                             onClick={() => handleSend(prompt)}
                             disabled={loading}
                             style={{
-                                background: '#FFFFFF',
+                                background: theme.bg,
                                 border: `1px solid ${theme.border}`,
                                 color: theme.textSecondary,
                                 padding: '5px 12px',
@@ -289,7 +289,7 @@ export default function AivaCoachDrawer({ isOpen, onClose, logs = [] }) {
                         disabled={loading}
                         style={{
                             flex: 1,
-                            background: '#FFFFFF',
+                            background: theme.bg,
                             border: `1px solid ${theme.border}`,
                             color: theme.text,
                             padding: '10px 14px',
