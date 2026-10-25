@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌿 AIVA Web Application (`health-tracker-web`)
 
-## Getting Started
+This folder contains the Next.js web application for **AIVA (AI + Vitality)**.
 
-First, run the development server:
+For full architectural details, design philosophy, and database schema, please refer to the [Root README](../README.md).
+
+---
+
+## ⚡ Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run the local development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔑 Environment Configuration
 
-## Learn More
+Ensure you have a `.env.local` file configured with:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+NEXT_PUBLIC_SUPABASE_URL="https://<your-project>.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="<your-anon-key>"
+SUPABASE_SERVICE_ROLE_KEY="<your-service-role-key>"
+GROQ_API_KEY="<your-groq-api-key>"
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧭 Routes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* `/` — Main dashboard featuring the **Cinematic Video Hero**, vitality score gauge, metrics overview, daily log history, and quick entry form.
+* `/drift` — Alternate experience featuring the interactive **3D Drift Wall** gallery with parallax perspective tilt and dynamic vitality tiles.
+* `/api/agent/chat` — Groq AI endpoint handling conversational coaching (`AIVA`), insights generation, and natural language log parsing.
+* `/api/entries` — REST endpoint for querying and upserting daily health logs to Supabase.
